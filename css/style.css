@@ -11,7 +11,7 @@ body {
   align-items: center;
   perspective: 1000px;
 
-  /* Background image stays static */
+  /* Background image */
   background: url('../img/background.jpg') no-repeat center center/cover;
 }
 
@@ -19,38 +19,33 @@ body {
 #color-overlay {
   position: fixed;
   top:0; left:0; width:100%; height:100%;
-  pointer-events: none; /* clicks go through */
+  pointer-events: none;
   z-index: 0;
   mix-blend-mode: overlay;
 }
 
 /* Container on top of overlay */
-.container {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 50px;
-  max-width: 1000px;
-}
+.container {position: relative; z-index: 1; text-align:center; padding:50px; max-width:1000px;}
 
-/* Header */
-header h1 {
-  font-size: 3em;
-  color: #FFA500; /* Orange highlight */
-  animation: fadeIn 2s ease forwards;
-}
+/* Header animations */
+.fade-in {opacity:0; animation:fadeInText 1s forwards;}
+.fade-in.delay-1 {animation-delay:0.5s;}
+.fade-in.delay-2 {animation-delay:1s;}
+.fade-in.delay-3 {animation-delay:1.5s;}
+.fade-in.delay-4 {animation-delay:2s;}
+.fade-in.delay-5 {animation-delay:2.5s;}
+@keyframes fadeInText {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
+
+header h1 {font-size: 3em; color: #FFA500;}
 header p {font-size: 1.2em; margin-top:10px;}
 
 /* Profile Image */
-.profile-section {
-  margin: 30px 0;
-}
+.profile-section {margin: 30px 0;}
 .profile-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   border: 4px solid #FFA500;
-  animation: popIn 1s ease forwards;
   transition: transform 0.3s ease;
 }
 
@@ -60,27 +55,21 @@ header p {font-size: 1.2em; margin-top:10px;}
   display:inline-block;
   margin:10px;
   padding:10px 20px;
-  border:2px solid #00BFFF; /* Blue highlight */
+  border:2px solid #00BFFF;
   border-radius: 25px;
   text-decoration:none;
   color:#fff;
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.link-btn:hover {
-  background:#00BFFF;
-  transform: scale(1.1) translateZ(20px);
-}
+.link-btn:hover {background:#00BFFF; transform: scale(1.1) translateZ(20px);}
+.pulse {animation:pulseBtn 2s infinite;}
+@keyframes pulseBtn {0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
 
 /* Sections */
 .section {margin:50px 0;}
 .section h2 {font-size:2em; margin-bottom:20px;}
-.cards {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap: wrap;
-}
+.cards {display:flex; justify-content:center; gap:20px; flex-wrap: wrap;}
 .card {
   background: rgba(0,0,0,0.5);
   padding: 20px;
@@ -88,12 +77,27 @@ header p {font-size: 1.2em; margin-top:10px;}
   width: 150px;
   transition: transform 0.3s ease, background 0.3s ease;
   cursor: pointer;
+  position: relative;
 }
-.card:hover {
-  transform: scale(1.1) rotateY(10deg) rotateX(10deg);
-  background: rgba(255,165,0,0.7);
+/* Card flip effect on hover */
+.card::after {
+  content: attr(data-info);
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  display:flex; justify-content:center; align-items:center;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  color:#fff;
+  padding:10px;
+  text-align:center;
+  font-size:0.9em;
+  opacity:0;
+  transition: all 0.3s ease;
+  border-radius:15px;
+  background: rgba(0,0,0,0.7);
 }
+.card:hover::after {opacity:1; transform: rotateY(0deg);}
+.card:hover {transform: scale(1.1) rotateY(10deg) rotateX(10deg); background: rgba(255,165,0,0.7);}
 
 /* Animations */
-@keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
 @keyframes popIn {from {transform:scale(0);opacity:0;} to {transform:scale(1);opacity:1;}}
