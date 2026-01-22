@@ -9,6 +9,14 @@ body {
   justify-content: center;
   align-items: center;
   perspective: 1000px; /* for 3D hover effects */
+
+  /* Updated background - test with direct link */
+  background: 
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') 
+    no-repeat center center/cover;
+
+  /* Optional fallback color if image fails */
+  background-color: #111;
 }
 .container {
   text-align: center;
@@ -80,4 +88,3 @@ header p {font-size: 1.2em; margin-top:10px;}
 /* Animations */
 @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
 @keyframes popIn {from {transform:scale(0);opacity:0;} to {transform:scale(1);opacity:1;}}
-
