@@ -1,14 +1,15 @@
+// Hue-shifting overlay
 const overlay = document.getElementById('color-overlay');
 let hue = 0;
 
 function animateBackground() {
-  hue = (hue + 0.3) % 360;
-  overlay.style.backgroundColor = `hsla(${hue}, 50%, 10%, 0.3)`; // semi-transparent color
+  hue = (hue + 0.2) % 360; // slower for smooth cinematic effect
+  overlay.style.backgroundColor = `hsla(${hue}, 50%, 10%, 0.3)`; // semi-transparent
   requestAnimationFrame(animateBackground);
 }
 animateBackground();
 
-// Magnetic hover effect stays the same
+// Magnetic hover effect
 const cards = document.querySelectorAll('.card');
 const links = document.querySelectorAll('.link-btn');
 
