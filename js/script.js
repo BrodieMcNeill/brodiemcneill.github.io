@@ -1,16 +1,16 @@
-// Smooth background glow
-const body = document.body;
+const overlay = document.getElementById('color-overlay');
 let hue = 0;
-
-// Magnetic hover effect
-const cards = document.querySelectorAll('.card');
-const links = document.querySelectorAll('.link-btn');
 
 function animateBackground() {
   hue = (hue + 0.3) % 360;
-  body.style.backgroundColor = `hsl(${hue}, 50%, 10%)`;
+  overlay.style.backgroundColor = `hsla(${hue}, 50%, 10%, 0.3)`; // semi-transparent color
   requestAnimationFrame(animateBackground);
 }
+animateBackground();
+
+// Magnetic hover effect stays the same
+const cards = document.querySelectorAll('.card');
+const links = document.querySelectorAll('.link-btn');
 
 function magneticHover(element) {
   element.addEventListener('mousemove', (e) => {
@@ -26,5 +26,3 @@ function magneticHover(element) {
 
 cards.forEach(magneticHover);
 links.forEach(magneticHover);
-
-animateBackground();
