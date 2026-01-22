@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brodie McNeill</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brodie's Cool Page</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Overlay for hue glow -->
   <div id="color-overlay"></div>
 
   <div class="container">
     <header>
-      <h1 class="fade-in">Hey, I'm Brodie!</h1>
-      <p class="fade-in delay-1">MTB rider, gamer, football & golf lover 🚴‍♂️⚽️⛳️</p>
+      <h1>Hey, I'm Brodie!</h1>
+      <p>MTB rider, gamer, football & golf lover 🚴‍♂️⚽️⛳️</p>
     </header>
 
-    <div class="profile-section fade-in delay-2">
+    <div class="profile-section">
       <img src="img/profile.png" alt="Brodie" class="profile-img">
     </div>
 
-    <nav class="links fade-in delay-3">
-      <a href="#projects" class="link-btn pulse">My Projects</a>
-      <a href="#hobbies" class="link-btn pulse">Hobbies</a>
+    <nav class="links">
+      <a href="#projects" class="link-btn">My Projects</a>
+      <a href="#hobbies" class="link-btn">Hobbies</a>
     </nav>
 
-    <section id="projects" class="section fade-in delay-4">
+    <section id="projects" class="section">
       <h2>Projects</h2>
       <div class="cards">
-        <div class="card" data-info="Reaching Platnium in Rocket League! 🎮">Rocket League</div>
-        <div class="card" data-info="MTB trails and tricks 🚵‍♂️">MTB Adventures</div>
-        <div class="card" data-info="Learning 'Skyfall' on piano 🎹">Music / Piano Goals</div>
+        <div class="card">
+          <div class="card-front">Rocket League Fun</div>
+          <div class="card-back">Epic Rocket League sessions! 🎮</div>
+        </div>
+        <div class="card">
+          <div class="card-front">MTB Adventures</div>
+          <div class="card-back">MTB trails and tricks 🚵‍♂️</div>
+        </div>
+        <div class="card">
+          <div class="card-front">Music / Piano Goals</div>
+          <div class="card-back">Learning 'Rush E' on piano 🎹</div>
+        </div>
       </div>
     </section>
 
-    <section id="hobbies" class="section fade-in delay-5">
+    <section id="hobbies" class="section">
       <h2>Hobbies</h2>
       <ul>
         <li>Mountain Biking 🚵‍♂️</li>
         <li>Football & Golf ⚽️⛳️</li>
         <li>Gaming 🎮</li>
-        <li>Listening to Dr. Dre🎧</li>
+        <li>Listening to Dr. Dre & Bruno Mars 🎧</li>
       </ul>
     </section>
   </div>
 
-  <!-- Hidden fun Easter egg element -->
-  <div id="secret" style="position:fixed;bottom:20px;right:20px;color:#FFA500;font-size:24px;cursor:pointer;display:none;">
-    🔥
-  </div>
+  <!-- Easter egg -->
+  <div id="secret">🔥</div>
 
   <script src="js/script.js"></script>
 </body>
