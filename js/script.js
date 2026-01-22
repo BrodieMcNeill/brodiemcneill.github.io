@@ -1,8 +1,8 @@
-// Hue overlay
+// Hue-shifting overlay
 const overlay = document.getElementById('color-overlay');
 let hue = 0;
 function animateBackground() {
-  hue = (hue+0.2)%360;
+  hue = (hue + 0.2) % 360;
   overlay.style.backgroundColor = `hsla(${hue},50%,10%,0.3)`;
   requestAnimationFrame(animateBackground);
 }
@@ -11,6 +11,7 @@ animateBackground();
 // Magnetic hover
 const cards = document.querySelectorAll('.card');
 const links = document.querySelectorAll('.link-btn');
+
 function magneticHover(el) {
   el.addEventListener('mousemove', e => {
     const rect = el.getBoundingClientRect();
@@ -20,9 +21,14 @@ function magneticHover(el) {
   });
   el.addEventListener('mouseleave', ()=>{el.style.transform='rotateX(0) rotateY(0) scale(1)';});
 }
+
 cards.forEach(magneticHover);
 links.forEach(magneticHover);
 
 // Easter egg: press B to toggle 🔥
 const secret = document.getElementById('secret');
-document.addEventListener('keydown', e => {if(e.key.toLowerCase()==='b'){secret.style.display = secret.style.display==='none'?'block':'none';}});
+document.addEventListener('keydown', e => {
+  if(e.key.toLowerCase() === 'b') {
+    secret.style.display = secret.style.display === 'none' ? 'block' : 'none';
+  }
+});
