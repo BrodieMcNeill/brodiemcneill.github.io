@@ -3,7 +3,7 @@ const overlay = document.getElementById('color-overlay');
 let hue = 0;
 
 function animateBackground() {
-  hue = (hue + 0.2) % 360; // slower for smooth cinematic effect
+  hue = (hue + 0.2) % 360; // slow cinematic glow
   overlay.style.backgroundColor = `hsla(${hue}, 50%, 10%, 0.3)`; // semi-transparent
   requestAnimationFrame(animateBackground);
 }
@@ -24,6 +24,13 @@ function magneticHover(element) {
     element.style.transform = 'rotateX(0) rotateY(0) scale(1)';
   });
 }
-
 cards.forEach(magneticHover);
 links.forEach(magneticHover);
+
+// Easter Egg: show secret 🔥 if 'B' is pressed
+const secret = document.getElementById('secret');
+document.addEventListener('keydown', (e) => {
+  if(e.key.toLowerCase() === 'b'){
+    secret.style.display = secret.style.display === 'none' ? 'block' : 'none';
+  }
+});
